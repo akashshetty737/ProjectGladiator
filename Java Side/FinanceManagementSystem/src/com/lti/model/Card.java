@@ -18,6 +18,9 @@ public class Card {
 	@Column(name="card_status")
 	private char cardStatus;
 	
+	
+	private CardType cardType;
+	
 	public Card() {
 	
 	}

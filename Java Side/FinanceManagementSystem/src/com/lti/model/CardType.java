@@ -16,6 +16,8 @@ public class CardType {
 	@Column(name="card_validity_period")
 	private int cardValidityPeriod;
 	
+	
+	
 	public CardType() {
 	
 	}

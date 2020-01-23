@@ -3,6 +3,7 @@ package com.lti.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Customer {
@@ -30,6 +31,8 @@ public class Customer {
 	@Column(name="customer_approved_status")
 	private char customerApprovedStatus;
 	
+	@OneToOne
+	private Card customerCard;
 	
 	public Customer() {
 	
