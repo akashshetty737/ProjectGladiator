@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Thu Jan 23 18:21:14 IST 2020
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\lntinfotech\\.m2\\repository\\org\\apache\\tomcat\\embed\\tomcat-embed-websocket\\9.0.26\\tomcat-embed-websocket-9.0.26.jar=WEB-INF/lib/tomcat-embed-websocket-9.0.26.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\lntinfotech\\.m2\\repository\\org\\springframework\\spring-web\\5.1.10.RELEASE\\spring-web-5.1.10.RELEASE.jar=WEB-INF/lib/spring-web-5.1.10.RELEASE.jar

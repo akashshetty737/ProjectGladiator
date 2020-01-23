@@ -1,0 +1,31 @@
+package com.lti.dao;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import com.lti.model.Customer;
+
+public class FinanaceManangementDaoImpl implements FinanaceManagementDao {
+
+	@PersistenceContext
+	EntityManager entityManager;
+	
+	@Override
+	@Transactional
+	public int createCustomer(Customer customer) {
+		entityManager.persist(customer);
+		return 1;
+	}
+
+	@Override
+	public List<Customer> viewAllCustomer() {
+		String jpql = "From Customer c";
+		TypedQuery<Customer> tQuery = entityManager.createQuery(jpql, Customer.class);
+		
+		return tQuery.getResultList();
+	}
+
+}

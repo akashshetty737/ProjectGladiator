@@ -1,0 +1,24 @@
+package com.lti.dao;
+
+import javax.persistence.PersistenceContext;
+
+import com.lti.model.Customer;
+
+public class FinanaceManangementDaoImpl implements FinanaceManagementDao {
+
+	@PersistenceContext
+	EntityManager entityManager;
+	
+	@Override
+	public int createCustomer() {
+		
+		return 0;
+	}
+
+	@Override
+	public Customer findCustomer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
