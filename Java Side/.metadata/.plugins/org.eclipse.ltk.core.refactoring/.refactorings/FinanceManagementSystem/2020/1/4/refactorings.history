@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.lti.model.EMI.java&apos; to &apos;Emi.java&apos;&#x0D;&#x0A;- Original project: &apos;FinanceManagementSystem&apos;&#x0D;&#x0A;- Original element: &apos;com.lti.model.EMI.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.lti.model.Emi.java&apos;" description="Rename compilation unit &apos;EMI.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.lti.model{EMI.java" name="Emi.java" references="false" stamp="1579751302227" version="1.0"/>
+</session>

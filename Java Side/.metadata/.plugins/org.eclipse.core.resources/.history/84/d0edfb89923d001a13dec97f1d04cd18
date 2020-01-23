@@ -3,7 +3,6 @@ package com.lti.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Login {
@@ -14,7 +13,7 @@ public class Login {
 	@Column(name="password")
 	private String password;
 	
-	@OneToOne
+	@OnetoOne
 	private Login login;
 	
 	public Login() {
