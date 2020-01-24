@@ -14,17 +14,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-
+@SequenceGenerator(name="customer_seq", initialValue=1, allocationSize=1)
 @Component("customer")
 @Scope(scopeName="prototype")
 @Entity
 @Table(name="customer")
 public class Customer {
-	
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="customer_seq")
-	@SequenceGenerator(sequenceName = "customer_seq", name="customer_seq", initialValue=1, allocationSize=1)
 	@Column(name="customer_id")
 	private int customerId;
 	@Column(name="customer_name")
@@ -46,7 +43,7 @@ public class Customer {
 	@Column(name="customer_bank_name")
 	private String customerBankName;
 	@Column(name="customer_approved_status")
-	private char customerApprovedStatus = 'N';
+	private char customerApprovedStatus = N;
 	@Autowired
 	@OneToOne
 	@JoinColumn(name="customer_card_number")

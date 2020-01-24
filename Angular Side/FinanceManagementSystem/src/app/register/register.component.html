@@ -9,7 +9,7 @@
         <input type="text" placeholder="Enter name" formControlName="customerName" name="customerName" required>
     
         <label for="dob"><b>DOB*</b></label>
-        <input type="date" placeholder="Enter Date of Birth" formControlName="customerDob" name="customerDob" required><br>
+        <input type="string" placeholder="Enter Date of Birth" formControlName="customerDob" name="customerDob" required><br>
     
         <label for="Email"><b>Email*</b></label>
         <input type="email" placeholder="Enter email" formControlName="customerEmailId" name="customerEmailId" required><br>
@@ -36,12 +36,12 @@
     <!--  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
       <div class="space">
           <label for="Bank" ><b>Select Bank</b></label>
-          <select>
-              <option value="AXIS" formControlName="customerBankName" name="customerBankName">AXIS Bank</option>
-            <option value="STATE" formControlName="customerBankName" name="customerBankName">STATE BANK OF INDIA</option>
-            <option value="KOTAK" formControlName="customerBankName" name="customerBankName">KOTAK MAHINDRA</option>
-            <option value="CANARA" formControlName="customerBankName" name="customerBankName">CANARA BANK</option>
-            <option value="INDIAN" formControlName="customerBankName" name="customerBankName">INDIAN OVERSEAS BANK</option>
+          <select formControlName="customerBankName">
+              <option value="AXIS"  name="customerBankName">AXIS Bank</option>
+            <option value="STATE" name="customerBankName">STATE BANK OF INDIA</option>
+            <option value="KOTAK"  name="customerBankName">KOTAK MAHINDRA</option>
+            <option value="CANARA"  name="customerBankName">CANARA BANK</option>
+            <option value="INDIAN" name="customerBankName">INDIAN OVERSEAS BANK</option>
             </select>
             </div><br>
             <label for="ac_no"><b>Savings account Number</b></label>
@@ -49,7 +49,7 @@
           </div>
           <div>
               <label for="IFSC"><b>IFSC Code</b></label>
-            <input type="number" placeholder="Enter IFSC code" formControlName="customerIfscCode" name="customerIfscCode" required><br>
+            <input type="text" placeholder="Enter IFSC code" formControlName="customerIfscCode" name="customerIfscCode" required><br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label for="Aadhaar"><b>Aadhaar upload</b></label>
             <input type="file" formControlName="Aadhaar" name="Aadhaar"><br>

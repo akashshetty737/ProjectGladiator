@@ -34,7 +34,7 @@ public class FinanceManagementController {
 		}
 	    return response;
 	}
-/*	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	/*@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public void addCustomer(@RequestBody Login login){
 		System.out.println(login);
 		System.out.println(login.getCustomer());

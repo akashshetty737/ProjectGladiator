@@ -19,12 +19,11 @@ import org.springframework.stereotype.Component;
 @Scope(scopeName="prototype")
 @Entity
 @Table(name="customer")
+@SequenceGenerator(sequenceName = "customer_seq", name="customer_seq", initialValue=1, allocationSize=1)
 public class Customer {
 	
-	
-	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="customer_seq")
-	@SequenceGenerator(sequenceName = "customer_seq", name="customer_seq", initialValue=1, allocationSize=1)
+	@Id
 	@Column(name="customer_id")
 	private int customerId;
 	@Column(name="customer_name")

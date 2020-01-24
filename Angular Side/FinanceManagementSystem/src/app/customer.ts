@@ -1,13 +1,11 @@
 export class Customer{
-    customerId:number;
     customerName: string;
+    customerAddress: string;
      customerDob: string;
      customerEmailId: string;
-     customerPhoneNo: number;
+     customerPhoneNo: number
      customerAnnualIncome : number;
-     customerAddress: string;
-     customerBankName: string;
      customerSavingsAccount:string;
      customerIfscCode:string;
-     customerApprovedStatus: string;
+     customerBankName: string;
 }
