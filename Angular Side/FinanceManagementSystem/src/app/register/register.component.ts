@@ -13,6 +13,7 @@ import { Customer } from '../customer';
 })
 export class RegisterComponent implements OnInit {
   addForm:FormGroup;
+  router: any;
 
 
   constructor(private http:HttpClient,private formBuilder:FormBuilder,private userService: UserService) { 
@@ -56,6 +57,11 @@ export class RegisterComponent implements OnInit {
     this.userService.createUser(login).subscribe(data=>{
       alert('customer is added')
     })
+  }
+
+  loadLoginPage()
+  {
+    this.router.navigateByUrl('/login');
   }
 
 }

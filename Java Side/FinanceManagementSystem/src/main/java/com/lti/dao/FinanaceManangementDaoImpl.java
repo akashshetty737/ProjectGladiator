@@ -1,7 +1,5 @@
 package com.lti.dao;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -26,11 +24,11 @@ public class FinanaceManangementDaoImpl implements FinanaceManagementDao {
 	}
 
 	@Override
-	public List<Customer> viewAllCustomer() {
-		String jpql = "From Customer c";
-		TypedQuery<Customer> tQuery = entityManager.createQuery(jpql, Customer.class);
-		
-		return tQuery.getResultList();
+	public Login viewUser(String username) {
+		String jpql = "From Login l where username = :username";
+		TypedQuery<Login> tQuery = entityManager.createQuery(jpql, Login.class);
+		tQuery.setParameter("username", username);
+		return tQuery.getSingleResult();
 	}
 
 }

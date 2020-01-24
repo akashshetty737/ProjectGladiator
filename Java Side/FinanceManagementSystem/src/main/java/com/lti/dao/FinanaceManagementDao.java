@@ -7,6 +7,6 @@ import com.lti.model.Login;
 
 public interface FinanaceManagementDao {
 	public int createCustomer(Login login);
-	public List<Customer> viewAllCustomer();
+	public Login viewUser(String username);
 		
 }

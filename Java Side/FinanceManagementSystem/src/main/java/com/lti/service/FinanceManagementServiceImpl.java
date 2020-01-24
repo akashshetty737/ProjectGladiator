@@ -29,9 +29,8 @@ public class FinanceManagementServiceImpl implements FinanaceManagementService {
 	}
 
 	@Override
-	public List<Customer> findAllCustomer() {
-		// TODO Auto-generated method stub
-		return null;
+	public Login findUser(String username) {
+		return  dao.viewUser(username);
 	}
 
 }

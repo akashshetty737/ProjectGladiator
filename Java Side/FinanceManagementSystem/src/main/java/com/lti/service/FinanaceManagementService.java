@@ -8,7 +8,7 @@ import com.lti.model.Login;
 public interface FinanaceManagementService {
 	
 	public boolean addCustomer(Login login);
-	public List<Customer> findAllCustomer();
+	public Login findUser(String username);
 	
 
 }

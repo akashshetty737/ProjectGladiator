@@ -1,0 +1,37 @@
+package com.lti.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.lti.dao.FinanaceManagementDao;
+import com.lti.model.Customer;
+import com.lti.model.Login;
+
+@Service("service")
+public class FinanceManagementServiceImpl implements FinanaceManagementService {
+
+	@Autowired
+	FinanaceManagementDao dao;
+	
+	@Override
+	public boolean addCustomer(Login login) {
+		int result = dao.createCustomer(login);
+		
+		if(result == 1){
+			return true;
+		}
+		else{
+			return false;
+		}
+	
+	}
+
+	@Override
+	public Login findUser(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
