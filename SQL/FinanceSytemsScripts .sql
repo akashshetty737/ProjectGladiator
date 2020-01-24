@@ -47,7 +47,7 @@ create table product
     customer_dob DATE NOT NULL,
     customer_email_id VARCHAR2(25) UNIQUE NOT NULL,
     customer_phone_no NUMBER(10)  NOT NULL,
-	customer_annual_income NUMBER(8,2) NOT NULL,
+	customer_annual_income NUMBER(10,2) NOT NULL,
     customer_savings_account VARCHAR2(16) NOT NULL,
 	customer_ifsc_code VARCHAR2(12) NOT NULL,
 	customer_bank_name VARCHAR2(20) NOT NULL,
@@ -166,8 +166,8 @@ create table product
 
 
 	 create sequence customer_seq
-  2  increment by 1
-  3  start with 1
-  4  maxvalue 10000
-  5  nocycle
-  6  nocache;
+    increment by 1
+   start with 1
+   maxvalue 10000
+  nocycle
+  nocache;

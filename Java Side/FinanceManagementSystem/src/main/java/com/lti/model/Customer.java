@@ -36,7 +36,7 @@ public class Customer {
 	@Column(name="customer_email_id")
 	private String customerEmailId;
 	@Column(name="customer_phone_no")
-	private int customerPhoneNo;
+	private long customerPhoneNo;
 	@Column(name="customer_annual_income")
 	private double customerAnnualIncome;
 	@Column(name="customer_savings_account")
@@ -58,7 +58,7 @@ public class Customer {
 	}
 	
 	public Customer(int customerId, String customerName, String customerAddress, String customerDob,
-			String customerEmailId, int customerPhoneNo, double customerAnnualIncome, String customerSavingsAccount,
+			String customerEmailId, long customerPhoneNo, double customerAnnualIncome, String customerSavingsAccount,
 			String customerIfscCode, String customerBankName, char customerApprovedStatus) {
 	
 		this.customerId = customerId;
@@ -105,10 +105,10 @@ public class Customer {
 	public void setCustomerEmailId(String customerEmailId) {
 		this.customerEmailId = customerEmailId;
 	}
-	public int getCustomerPhoneNo() {
+	public long getCustomerPhoneNo() {
 		return customerPhoneNo;
 	}
-	public void setCustomerPhoneNo(int customerPhoneNo) {
+	public void setCustomerPhoneNo(long customerPhoneNo) {
 		this.customerPhoneNo = customerPhoneNo;
 	}
 	public double getCustomerAnnualIncome() {

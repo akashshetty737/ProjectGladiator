@@ -37,17 +37,19 @@ hr {
 /* Set a style for the submit/register button */
 .registerbtn {
   background-color: #4CAF50;
-  color: white;
+  color: black;
   padding: 16px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
-  opacity: 0.9;
+  opacity: 0.5;
 }
 
 .registerbtn:hover {
   opacity:1;
+  color: white;
+  transition: 0.8s;
 }
 
 /* Add a blue text color to links */

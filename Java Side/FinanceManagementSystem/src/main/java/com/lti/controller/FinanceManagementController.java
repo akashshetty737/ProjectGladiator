@@ -5,12 +5,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lti.model.Customer;
 import com.lti.model.Login;
 import com.lti.service.FinanaceManagementService;
 
@@ -18,10 +18,10 @@ import com.lti.service.FinanaceManagementService;
 @RequestMapping(path = "/")
 @CrossOrigin
 public class FinanceManagementController {
-	
+
 	@Autowired
 	private FinanaceManagementService service;
-	
+
 	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> addCustomer(@RequestBody Login login){
 		ResponseEntity<String> response;
@@ -32,9 +32,17 @@ public class FinanceManagementController {
 		else{
 			response=new ResponseEntity<String>("Customer IS NOT ADDED.",HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-	    return response;
+		return response;
 	}
-/*	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+
+	@RequestMapping(path="{username}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public Login loginCustomer(@PathVariable("username") String username) {
+		Login login = service.findUser(username);
+		return login;
+	}
+
+
+	/*	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public void addCustomer(@RequestBody Login login){
 		System.out.println(login);
 		System.out.println(login.getCustomer());

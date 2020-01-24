@@ -14,5 +14,10 @@ export class UserService {
   
   createUser(login: Login) {
         return this.http.post(this.baseUrl, login);
-      }
-}
+    }
+  
+  loginUser(login: Login){
+     return this.http.get<Login>(this.baseUrl+'/'+login.username);
+  }
+  
+  }
