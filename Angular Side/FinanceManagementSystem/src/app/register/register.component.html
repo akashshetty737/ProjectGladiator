@@ -1,0 +1,72 @@
+
+<form [formGroup]="addForm" (ngSubmit)="addCustomer()" >
+      <div class="container">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+    
+        <label for="name"><b>Name*</b></label>
+        <input type="text" placeholder="Enter name" formControlName="customerName" name="customerName" required>
+    
+        <label for="dob"><b>DOB*</b></label>
+        <input type="date" placeholder="Enter Date of Birth" formControlName="customerDob" name="customerDob" required><br>
+    
+        <label for="Email"><b>Email*</b></label>
+        <input type="email" placeholder="Enter email" formControlName="customerEmailId" name="customerEmailId" required><br>
+        
+        <label for="ph"><b>phone No*</b></label>
+        <input type="number" placeholder="Enter phone number" formControlName="customerPhoneNo" name="customerPhoneNo" required><br>
+
+        <label for="income"><b>Annual income*</b></label>
+        <input type="number" placeholder="Enter Annual income" formControlName="customerAnnualIncome" name="customerAnnualIncome" required><hr>
+
+        
+        <label for="username"><b>UserName*</b></label>
+        <input type="text" placeholder="Enter user name" formControlName="username" name="username" required>
+        
+        <label for="password"><b>password*</b></label>
+        <input type="password" placeholder="Enter password" formControlName="password" name="password" required>
+        
+        <label for="cpswd"><b>confirm password</b></label>
+        <input type="password" placeholder="Enter password" formControlName="confirmPassword" name="confirmPassword" required>
+        
+        <label for="address"><b>Address</b></label>
+    <textarea rows="4" cols="50" name="comment" formControlName="customerAddress" form="customerAddress">
+      </textarea>
+    <!--  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+    <div class="space">
+    <label for="CardType" ><b>CardType</b></label>
+    <select>
+        <option value="Gold" formControlName="cardType" name="cardType" >Gold</option>
+      <option value="Titanium" formControlName="cardType" name="cardType">Titanium</option>
+      </select>
+      </div>
+      <div class="space">
+          <label for="Bank" ><b>Select Bank</b></label>
+          <select>
+              <option value="AXIS" formControlName="customerBankName" name="customerBankName">AXIS Bank</option>
+            <option value="STATE" formControlName="customerBankName" name="customerBankName">STATE BANK OF INDIA</option>
+            <option value="KOTAK" formControlName="customerBankName" name="customerBankName">KOTAK MAHINDRA</option>
+            <option value="CANARA" formControlName="customerBankName" name="customerBankName">CANARA BANK</option>
+            <option value="INDIAN" formControlName="customerBankName" name="customerBankName">INDIAN OVERSEAS BANK</option>
+            </select>
+            </div><br>
+            <label for="ac_no"><b>Savings account Number</b></label>
+            <input type="text" placeholder="Enter Savings account Number " formControlName="customerSavingsAccount" name="customerSavingsAccount" required>
+          </div>
+          <div>
+              <label for="IFSC"><b>IFSC Code</b></label>
+            <input type="number" placeholder="Enter IFSC code" formControlName="customerIfscCode" name="customerIfscCode" required><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="Aadhaar"><b>Aadhaar upload</b></label>
+            <input type="file" formControlName="Aadhaar" name="Aadhaar"><br>
+            
+            <label for="PanCard"><b>PanCard upload</b></label>
+            <input type="file" formControlName="PanCard" name="PanCard"><br>
+             <!-- <input type="text" placeholder="Enter user name" name="name" required> -->
+          <button type="submit" class="registerbtn">Register</button>
+      </div>
+          <div class="container signin">
+        <p><a href="#">Reset</a>.</p>
+      </div>
+    </form>

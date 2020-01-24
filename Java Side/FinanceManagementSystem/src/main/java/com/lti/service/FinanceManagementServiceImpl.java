@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.lti.dao.FinanaceManagementDao;
 import com.lti.model.Customer;
+import com.lti.model.Login;
 
 @Service("service")
 public class FinanceManagementServiceImpl implements FinanaceManagementService {
@@ -15,8 +16,8 @@ public class FinanceManagementServiceImpl implements FinanaceManagementService {
 	FinanaceManagementDao dao;
 	
 	@Override
-	public boolean addCustomer(Customer customer) {
-		int result = dao.createCustomer(customer);
+	public boolean addCustomer(Login login) {
+		int result = dao.createCustomer(login);
 		
 		if(result == 1){
 			return true;

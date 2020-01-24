@@ -1,5 +1,6 @@
 package com.lti.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -24,8 +25,8 @@ public class Login {
 	private String password;
 	
 	@Autowired
-	@OneToOne
-	@JoinColumn(name="customer_id")
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="account_id")
 	private Customer customer;
 	
 	public Login() {

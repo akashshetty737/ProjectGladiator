@@ -90,11 +90,12 @@ public class Emi {
 	public void setEmiActiveStatus(char emiActiveStatus) {
 		this.emiActiveStatus = emiActiveStatus;
 	}
-	public Customer getCustomer() {
-		return customer;
+	
+	public List<Customer> getCustomers() {
+		return customers;
 	}
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setCustomers(List<Customer> customers) {
+		this.customers = customers;
 	}
 	public Product getProduct() {
 		return product;

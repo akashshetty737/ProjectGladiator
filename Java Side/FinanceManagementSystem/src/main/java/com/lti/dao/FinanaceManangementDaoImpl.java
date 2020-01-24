@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.model.Customer;
+import com.lti.model.Login;
 
 @Repository("dao")
 public class FinanaceManangementDaoImpl implements FinanaceManagementDao {
@@ -19,8 +20,8 @@ public class FinanaceManangementDaoImpl implements FinanaceManagementDao {
 	
 	@Override
 	@Transactional
-	public int createCustomer(Customer customer) {
-		entityManager.persist(customer);
+	public int createCustomer(Login login) {
+		entityManager.persist(login);
 		return 1;
 	}
 
