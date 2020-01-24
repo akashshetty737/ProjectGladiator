@@ -22,7 +22,7 @@ public class FinanceManagementController {
 	@Autowired
 	private FinanaceManagementService service;
 	
-	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	/*@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> addCustomer(@RequestBody Login login){
 		ResponseEntity<String> response;
 		boolean result = service.addCustomer(login);
@@ -33,11 +33,11 @@ public class FinanceManagementController {
 			response=new ResponseEntity<String>("Customer IS NOT ADDED.",HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	    return response;
-	}
-/*	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	}*/
+	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public void addCustomer(@RequestBody Login login){
 		System.out.println(login);
 		System.out.println(login.getCustomer());
-	}*/
+	}
 	
 }

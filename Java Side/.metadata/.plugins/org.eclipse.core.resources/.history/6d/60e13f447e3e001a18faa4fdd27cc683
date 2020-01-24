@@ -2,26 +2,21 @@ package com.lti.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@SequenceGenerator(name="customer_seq", initialValue=1, allocationSize=1)
 @Component("customer")
 @Scope(scopeName="prototype")
 @Entity
 @Table(name="customer")
 public class Customer {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="customer_seq")
 	@Column(name="customer_id")
 	private int customerId;
 	@Column(name="customer_name")
