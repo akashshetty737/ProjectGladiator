@@ -8,12 +8,12 @@ import { Login } from './login';
   })
 export class UserService {
     constructor(private http:HttpClient) { }
-  baseUrl:string = 'http://localhost:9090/';
+  baseUrl:string = 'http://localhost:9090';
    
   
   
   createUser(login: Login) {
-        return this.http.post(this.baseUrl, login);
+        return this.http.post(this.baseUrl+'/register', login);
     }
   
   loginUser(login: Login){

@@ -1,8 +1,11 @@
 package com.lti.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -16,7 +19,7 @@ import org.springframework.stereotype.Component;
 @Scope(scopeName="prototype")
 @Entity
 @Table(name="login")
-public class Login {
+public class Login implements Serializable {
 	
 	@Id
 	@Column(name="user_name")
@@ -25,7 +28,7 @@ public class Login {
 	private String password;
 	
 	@Autowired
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name="account_id")
 	private Customer customer;
 	
@@ -36,6 +39,13 @@ public class Login {
 	
 		this.username = username;
 		this.password = password;
+	}
+	
+	public Login(String username, String password, Customer customer) {
+		
+		this.username = username;
+		this.password = password;
+		this.customer = customer;
 	}
 
 

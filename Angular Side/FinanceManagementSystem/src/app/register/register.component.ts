@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user-service';
 import { Login } from '../login';
 import { Customer } from '../customer';
-import { MustMatch } from '../_helpers/must-match.validator';
 
 @Component({
   selector: 'app-register',
@@ -22,33 +21,25 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.addForm=this.formBuilder.group({
-      username:['', Validators.required],
-      password:['', Validators.required],
-      comfirmPassword:['', Validators.required],
-      customerName:['', Validators.required],
-      customerDob:['', Validators.required],
-      customerEmailId:['', Validators.required],
-      customerPhoneNo:['', Validators.required],
-      customerAnnualIncome:['', Validators.required],
-      customerAddress:['', Validators.required],
-      customerBankName:['', Validators.required],
-      customerSavingsAccount:['', Validators.required],
-      customerIfscCode:['', Validators.required]
-    },
-      {
-            validator: MustMatch('password', 'confirmPassword')
-        });
+      username:[''],
+      password:[''],
+      comfirmPassword:[''],
+      customerName:[''],
+      customerDob:[''],
+      customerEmailId:[''],
+      customerPhoneNo:[''],
+      customerAnnualIncome:[''],
+      customerAddress:[''],
+      customerBankName:[''],
+      customerSavingsAccount:[''],
+      customerIfscCode:['']
 
+     
+  });
   }
 
-
-  onSubmit()
-  {
-    this.submitted = true;
-    if (this.addForm.invalid) 
-        {
-            return;
-        }
+  addCustomer():void{
+  
    
        let login: Login = new Login();
        login.customer = new Customer();
@@ -68,11 +59,6 @@ export class RegisterComponent implements OnInit {
        this.userService.createUser(login).subscribe(data=>{
           alert('customer is added')
         })
-  }
-
-  loadLoginPage()
-  {
-    this.router.navigateByUrl('/login');
   }
 
 }

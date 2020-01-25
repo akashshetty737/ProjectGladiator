@@ -22,7 +22,7 @@ public class FinanceManagementController {
 	@Autowired
 	private FinanaceManagementService service;
 
-	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path="register", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> addCustomer(@RequestBody Login login){
 		ResponseEntity<String> response;
 		boolean result = service.addCustomer(login);
@@ -42,10 +42,9 @@ public class FinanceManagementController {
 	}
 
 
-	/*	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
-	public void addCustomer(@RequestBody Login login){
-		System.out.println(login);
-		System.out.println(login.getCustomer());
-	}*/
-
+/*	@RequestMapping(path="{username}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public void loginCustomer(@PathVariable("username") String username) {
+		System.out.println(username);
+	}
+*/
 }

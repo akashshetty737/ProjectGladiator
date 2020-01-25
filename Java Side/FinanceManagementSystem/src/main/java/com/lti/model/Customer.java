@@ -1,7 +1,10 @@
 package com.lti.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +22,7 @@ import org.springframework.stereotype.Component;
 @Scope(scopeName="prototype")
 @Entity
 @Table(name="customer")
-public class Customer {
+public class Customer implements Serializable{
 	
 	
 	@Id
@@ -48,7 +51,7 @@ public class Customer {
 	@Column(name="customer_approved_status")
 	private char customerApprovedStatus = 'N';
 	@Autowired
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="customer_card_number")
 	private Card customerCard;
 	

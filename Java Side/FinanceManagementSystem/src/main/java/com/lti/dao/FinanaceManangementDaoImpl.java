@@ -25,10 +25,12 @@ public class FinanaceManangementDaoImpl implements FinanaceManagementDao {
 
 	@Override
 	public Login viewUser(String username) {
-		String jpql = "From Login l where username = :username";
+		String jpql = "Select l From Login l where l.username = :username";
 		TypedQuery<Login> tQuery = entityManager.createQuery(jpql, Login.class);
 		tQuery.setParameter("username", username);
-		return tQuery.getSingleResult();
+		Login login = tQuery.getSingleResult();
+		System.out.println(login);
+		return login;
 	}
 
 }

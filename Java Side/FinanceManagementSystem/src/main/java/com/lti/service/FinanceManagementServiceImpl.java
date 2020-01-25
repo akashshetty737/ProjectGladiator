@@ -30,7 +30,9 @@ public class FinanceManagementServiceImpl implements FinanaceManagementService {
 
 	@Override
 	public Login findUser(String username) {
-		return  dao.viewUser(username);
+		Login login = dao.viewUser(username);
+		System.out.println(login);
+		return login ;
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.lti.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Emi {
+public class Emi implements Serializable{
 	@Id
 	@Column(name="emi_id")
 	private int emiId;
