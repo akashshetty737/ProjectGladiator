@@ -1,64 +1,110 @@
-<form [formGroup]="addForm" (ngSubmit)="addCustomer()" >
-  <div class="container">
+<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></head>
+
+<form [formGroup]="addForm" (ngSubmit)="addCustomer()" ngNativeValidate>
+  <div class="container-fluid">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
 
     <label for="name"><b>Name*</b></label>
-    <input type="text" placeholder="Enter name" formControlName="customerName" name="customerName" required>
+    <input type="text" class="form-control"placeholder="Enter name" formControlName="customerName" name="customerName" required>
+    <div *ngIf="customerName.invalid && (customerName.dirty || customerName.touched) " class="alert alert-danger">
+      <div> Name is required </div>
+    </div>
 
     <label for="dob"><b>DOB*</b></label>
-    <input type="string" placeholder="Enter Date of Birth" formControlName="customerDob" name="customerDob" required><br>
+    <input type="string" class="form-control"placeholder="Enter Date of Birth" formControlName="customerDob" name="customerDob"
+      required><br>
+    <div *ngIf="customerDob.invalid && (customerDob.dirty || customerDob.touched) " class="alert alert-danger">
+      <div> DOB is required </div>
+    </div>
 
     <label for="Email"><b>Email*</b></label>
-    <input type="email" placeholder="Enter email" formControlName="customerEmailId" name="customerEmailId" required><br>
-    
+    <input type="email"class="form-control" placeholder="Enter email" formControlName="customerEmailId" name="customerEmailId" required><br>
+    <div *ngIf="customerEmailId.invalid && (customerEmailId.dirty || customerEmailId.touched) "
+      class="alert alert-danger">
+      <div> Email Id is required </div>
+    </div>
+
     <label for="ph"><b>phone No*</b></label>
-    <input type="number" placeholder="Enter phone number" formControlName="customerPhoneNo" name="customerPhoneNo" required><br>
-
+    <input type="number"class="form-control" placeholder="Enter phone number" formControlName="customerPhoneNo" name="customerPhoneNo"
+      required><br>
+    <div *ngIf="customerPhoneNo.invalid && (customerPhoneNo.dirty || customerPhoneNo.touched) "
+      class="alert alert-danger">
+      <div> PhoneNo is required </div>
+    </div>
     <label for="income"><b>Annual income*</b></label>
-    <input type="number" placeholder="Enter Annual income" formControlName="customerAnnualIncome" name="customerAnnualIncome" required><hr>
+    <input type="number"class="form-control" placeholder="Enter Annual income" formControlName="customerAnnualIncome"
+      name="customerAnnualIncome" required><br>
+    <div *ngIf="customerAnnualIncome.invalid && (customerAnnualIncome.dirty || customerAnnualIncome.touched) "
+      class="alert alert-danger">
+      <div> Annual Income is required </div>
+    </div>
 
-    
     <label for="username"><b>UserName*</b></label>
-    <input type="text" placeholder="Enter user name" formControlName="username" name="username" required>
-    
+    <input type="text"class="form-control" placeholder="Enter user name" formControlName="username" name="username" required>
+    <div *ngIf="username.invalid && (username.dirty || username.touched) " class="alert alert-danger">
+      <div> username is required </div>
+    </div>
+
     <label for="password"><b>password*</b></label>
-    <input type="password" placeholder="Enter password" formControlName="password" name="password" required>
-    
-    <label for="cpswd"><b>confirm password</b></label>
-    <input type="password" placeholder="Enter password" formControlName="confirmPassword" name="confirmPassword" required>
-    
+    <input type="password" class="form-control"placeholder="Enter password" formControlName="password" name="password" required>
+    <div *ngIf="password.invalid && (password.dirty || password.touched) " class="alert alert-danger">
+      <div> password is required </div>
+    </div>
+
+
+    <label for="confirmPassword"><b>confirmPassword*</b></label>
+    <input type="password" class="form-control"placeholder="Re-enter password" formControlName="confirmPassword" name="confirmPassword"
+      required>
+    <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched) "
+      class="alert alert-danger">
+      <div> confirmPassword is required </div>
+    </div>
     <label for="address"><b>Address</b></label>
-<textarea rows="4" cols="50" name="comment" formControlName="customerAddress" form="customerAddress">
-  </textarea>
-<!--  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-  <div class="space">
-      <label for="Bank" ><b>Select Bank</b></label>
-      <select formControlName="customerBankName">
-          <option value="AXIS"  name="customerBankName">AXIS Bank</option>
-        <option value="STATE" name="customerBankName">STATE BANK OF INDIA</option>
-        <option value="KOTAK"  name="customerBankName">KOTAK MAHINDRA</option>
-        <option value="CANARA"  name="customerBankName">CANARA BANK</option>
-        <option value="INDIAN" name="customerBankName">INDIAN OVERSEAS BANK</option>
-        </select>
-        </div><br>
-        <label for="ac_no"><b>Savings account Number</b></label>
-        <input type="text" placeholder="Enter Savings account Number " formControlName="customerSavingsAccount" name="customerSavingsAccount" required>
-      </div>
-      <div>
-          <label for="IFSC"><b>IFSC Code</b></label>
-        <input type="text" placeholder="Enter IFSC code" formControlName="customerIfscCode" name="customerIfscCode" required><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="Aadhaar"><b>Aadhaar upload</b></label>
-        <input type="file" formControlName="Aadhaar" name="Aadhaar"><br>
-        
-        <label for="PanCard"><b>PanCard upload</b></label>
-        <input type="file" formControlName="PanCard" name="PanCard"><br>
-         <!-- <input type="text" placeholder="Enter user name" name="name" required> -->
-      <button type="submit" class="registerbtn">Register</button>
+    <textarea class="form-control" rows="4" cols="50" name="comment" formControlName="customerAddress" form="customerAddress">
+  </textarea >
+    <div *ngIf="customerAddress.invalid && (customerAddress.dirty || customerAddress.touched) "
+      class="alert alert-danger">
+      <div> customerAddress is required </div>
+    </div><br>
+    <!--  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+
+    <label for="Bank"><b>Select Bank</b></label>
+    <select class="form-control"formControlName="customerBankName">
+      <option value="AXIS" name="customerBankName">AXIS Bank</option>
+      <option value="STATE" name="customerBankName">STATE BANK OF INDIA</option>
+      <option value="KOTAK" name="customerBankName">KOTAK MAHINDRA</option>
+      <option value="CANARA" name="customerBankName">CANARA BANK</option>
+      <option value="INDIAN" name="customerBankName">INDIAN OVERSEAS BANK</option>
+    </select>
   </div>
-      <div class="container signin">
-    <p><a href="#">Reset</a>.</p>
+  <div>
+  <label for="ac_no"><b>Savings account Number</b></label>
+  <input class="form-control"type="text" placeholder="Enter Savings account Number " formControlName="customerSavingsAccount"
+    name="customerSavingsAccount" required></div>
+  <div *ngIf="customerSavingsAccount.invalid && (customerSavingsAccount.dirty || customerSavingsAccount.touched) "
+    class="alert alert-danger">
+    <div> customerSavingsAccount is required </div>
   </div>
+
+  <div>
+    <label for="IFSC"><b>IFSC Code</b></label>
+    <input type="text"class="form-control" placeholder="Enter IFSC code" formControlName="customerIfscCode" name="customerIfscCode"
+      required><br>
+    <div *ngIf="customerIfscCode.invalid && (customerIfscCode.dirty || customerIfscCode.touched) "
+      class="alert alert-danger">
+      <div> customerIfscCode is required </div>
+    </div>
+    
+    <label for="Aadhaar"><b>Aadhaar upload</b></label>
+    <input type="file" formControlName="Aadhaar" name="Aadhaar"><br>
+
+    <label for="PanCard"><b>PanCard upload</b></label>
+    <input type="file" formControlName="PanCard" name="PanCard"><br>
+    <!-- <input type="text" placeholder="Enter user name" name="name" required> -->
+    <button style="text-align: center;" type="submit" class="btn btn-primary">Register</button>
+  </div>
+  
+
 </form>

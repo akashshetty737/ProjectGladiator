@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../user-service';
+import { FormBuilder, FormGroup, Validators ,FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { UserService } from '../user.service';
 import { Login } from '../login';
 import { Customer } from '../customer';
+
 
 @Component({
   selector: 'app-register',
@@ -21,18 +22,18 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.addForm=this.formBuilder.group({
-      username:[''],
-      password:[''],
-      comfirmPassword:[''],
-      customerName:[''],
-      customerDob:[''],
-      customerEmailId:[''],
-      customerPhoneNo:[''],
-      customerAnnualIncome:[''],
-      customerAddress:[''],
-      customerBankName:[''],
-      customerSavingsAccount:[''],
-      customerIfscCode:['']
+      username:['',Validators.required,Validators.minLength(4),Validators.pattern("[A-Za-z]")],
+      password:['',Validators.required],
+      comfirmPassword:['',Validators.required],
+      customerName:['',Validators.required],
+      customerDob:['',Validators.required],
+      customerEmailId:['',Validators.required],
+      customerPhoneNo:['',Validators.required],
+      customerAnnualIncome:['',Validators.required],
+      customerAddress:['',Validators.required],
+      customerBankName:['',Validators.required],
+      customerSavingsAccount:['',Validators.required],
+      customerIfscCode:['',Validators.required]
 
      
   });
@@ -61,4 +62,49 @@ export class RegisterComponent implements OnInit {
         })
   }
 
+  get customerName()
+  {
+    return this.addForm.get('customerName');
+  }
+  get customerDob()
+  {
+    return this.addForm.get('customerDob');
+  }
+  get customerEmailId()
+  {
+    return this.addForm.get('customerEmailId');
+  }
+  get customerPhoneNo()
+  {
+    return this.addForm.get('customerPhoneNo');
+  }
+  get customerAnnualIncome()
+  {
+    return this.addForm.get('customerAnnualIncome');
+  }
+  get username()
+  {
+    return this.addForm.get('username');
+  }
+  get password()
+  {
+    return this.addForm.get('password');
+  }
+  get confirmPassword()
+  {
+    return this.addForm.get('confirmPassword');
+  }
+  get customerAddress()
+  {
+    return this.addForm.get('customerAddress');
+  }
+  
+  get customerSavingsAccount()
+  {
+    return this.addForm.get('customerSavingsAccount');
+  }
+  get customerIfscCode()
+  {
+    return this.addForm.get('customerIfscCode');
+  }
 }
