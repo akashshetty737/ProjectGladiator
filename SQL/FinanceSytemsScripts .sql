@@ -163,11 +163,28 @@ create table product
 	select * from emi;
 	select * from product;
 	select * from emi_payment;
-
-
-	 create sequence customer_seq
-    increment by 1
-   start with 1
-   maxvalue 10000
-  nocycle
-  nocache;
+						
+	create sequence customer_seq
+    	increment by 1
+   	start with 1
+   	maxvalue 10000
+  	nocycle
+  	nocache;
+	
+						
+	create sequence emi_seq
+    	increment by 1
+   	start with 1
+   	maxvalue 10000
+  	nocycle
+  	nocache;
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
