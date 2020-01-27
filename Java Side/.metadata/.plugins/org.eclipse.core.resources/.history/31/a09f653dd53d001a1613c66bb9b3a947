@@ -1,9 +1,0 @@
-package com.lti.dao;
-
-import com.lti.model.Customer;
-
-public interface FinanaceManagementDao {
-	public int createCustomer(Customer customer);
-	public Customer findCustomer();
-		
-}

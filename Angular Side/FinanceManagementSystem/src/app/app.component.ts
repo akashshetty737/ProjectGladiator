@@ -1,4 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule
+  ],
+  declarations: [
+    AppComponent
+  ],
+  bootstrap: [AppComponent]
+})
 
 @Component({
   selector: 'app-root',

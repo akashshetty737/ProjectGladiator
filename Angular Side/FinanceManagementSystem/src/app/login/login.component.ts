@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Login } from '../login';
+import { Router } from '@angular/router';
 
 
 
@@ -13,10 +14,11 @@ import { Login } from '../login';
 })
 export class LoginComponent implements OnInit {
   loginForm:FormGroup;
-  router: any;
+
   loginData: Login = new Login();
 
-  constructor(private http:HttpClient,private formBuilder:FormBuilder,private userService: UserService) { 
+  constructor(private http:HttpClient,private formBuilder:FormBuilder,private userService: UserService,
+    private router:Router) { 
 
   }
 
@@ -39,11 +41,14 @@ export class LoginComponent implements OnInit {
       console.log(this.loginData.password);
       if(login.password == this.loginData.password){
         alert("Successful");
+        this.router.navigate(['/main']);
      }
      else{
        alert("Please Try Again")
      }
+
     });
+
     
 
   }
