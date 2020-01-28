@@ -2847,3 +2847,7 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Could not find
 2020-01-25 12:30:06,977 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\ProjectGladiator\Java Side\FinanceManagementSystem\src\main\resources
 2020-01-25 12:30:06,978 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2020-01-25 12:30:06,978 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\ProjectGladiator\Java Side\FinanceManagementSystem\src\test\resources
+2020-01-27 11:08:11,151 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-27 11:08:11,155 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\ProjectGladiator\Java Side\FinanceManagementSystem\src\main\resources
+2020-01-27 11:08:11,157 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-01-27 11:08:11,158 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\ProjectGladiator\Java Side\FinanceManagementSystem\src\test\resources
