@@ -92,6 +92,7 @@
         <div *ngIf="password.errors.required">
           password is required.
         </div>
+
       </div>
 
     </div>
@@ -99,57 +100,61 @@
 
 
     <div class="form-group">
-    <label for="address"><b>Address</b></label>
-    <input type="text" class="form-control" placeholder="Enter user Address" formControlName="customerAddress"
-      name="customerAddress" required>
-      <div *ngIf="customerAddress.invalid && (customerAddress.dirty || customerAddress.touched)" class="alert alert-danger">
+      <label for="address"><b>Address</b></label>
+      <input type="text" class="form-control" placeholder="Enter user Address" formControlName="customerAddress"
+        name="customerAddress" required>
+      <div *ngIf="customerAddress.invalid && (customerAddress.dirty || customerAddress.touched)"
+        class="alert alert-danger">
         <div *ngIf="customerAddress.errors.required">
-        Address is required.
+          Address is required.
         </div>
       </div>
 
-    </div> 
-    <div class="form-group"> 
-
-    <label for="Bank"><b>Select Bank</b></label>
-    <select class="form-control" formControlName="customerBankName">
-      <option value="-1" name="customerBankName">---select Bank---</option>
-      <option value="AXIS" name="customerBankName">AXIS Bank</option>
-      <option value="STATE" name="customerBankName">STATE BANK OF INDIA</option>
-      <option value="KOTAK" name="customerBankName">KOTAK MAHINDRA</option>
-      <option value="CANARA" name="customerBankName">CANARA BANK</option>
-      <option value="INDIAN" name="customerBankName">INDIAN OVERSEAS BANK</option>
-    </select>
-    <div *ngIf="customerBankName.invalid && (customerBankName.dirty || customerBankName.touched)" class="alert alert-danger">
-      <div *ngIf="customerBankName.errors.required">
-      Bank Name is required.
-      </div>
     </div>
-    </div>
-    
     <div class="form-group">
 
-    <label for="ac_no"><b>Savings account Number</b></label>
-    <input class="form-control" type="text" placeholder="Enter Savings account Number "
-      formControlName="customerSavingsAccount" name="customerSavingsAccount" required>
-      <div *ngIf="customerSavingsAccount.invalid && (customerSavingsAccount.dirty || customerSavingsAccount.touched)" class="alert alert-danger">
+      <label for="Bank"><b>Select Bank</b></label>
+      <select class="form-control" formControlName="customerBankName">
+        <option value="-1" name="customerBankName">---select Bank---</option>
+        <option value="AXIS" name="customerBankName">AXIS Bank</option>
+        <option value="STATE" name="customerBankName">STATE BANK OF INDIA</option>
+        <option value="KOTAK" name="customerBankName">KOTAK MAHINDRA</option>
+        <option value="CANARA" name="customerBankName">CANARA BANK</option>
+        <option value="INDIAN" name="customerBankName">INDIAN OVERSEAS BANK</option>
+      </select>
+      <div *ngIf="customerBankName.invalid && (customerBankName.dirty || customerBankName.touched)"
+        class="alert alert-danger">
+        <div *ngIf="customerBankName.errors.required">
+          Bank Name is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+
+      <label for="ac_no"><b>Savings account Number</b></label>
+      <input class="form-control" type="text" placeholder="Enter Savings account Number "
+        formControlName="customerSavingsAccount" name="customerSavingsAccount" required>
+      <div *ngIf="customerSavingsAccount.invalid && (customerSavingsAccount.dirty || customerSavingsAccount.touched)"
+        class="alert alert-danger">
         <div *ngIf="customerSavingsAccount.errors.required">
           Savings Account no is required.
         </div>
       </div>
-      </div>
+    </div>
 
 
-      <div class="form-group">
-    <label for="IFSC"><b>IFSC Code</b></label>
-    <input type="text" class="form-control" placeholder="Enter IFSC code" formControlName="customerIfscCode"
-      name="customerIfscCode" required>
-      <div *ngIf="customerIfscCode.invalid && (customerIfscCode.dirty || customerIfscCode.touched)" class="alert alert-danger">
+    <div class="form-group">
+      <label for="IFSC"><b>IFSC Code</b></label>
+      <input type="text" class="form-control" placeholder="Enter IFSC code" formControlName="customerIfscCode"
+        name="customerIfscCode" required>
+      <div *ngIf="customerIfscCode.invalid && (customerIfscCode.dirty || customerIfscCode.touched)"
+        class="alert alert-danger">
         <div *ngIf="customerIfscCode.errors.required">
           IFSC Code is required.
         </div>
       </div>
-      </div>
+    </div>
 
     <!-- <label for="Aadhaar"><b>Aadhaar upload</b></label>
     <input type="file" formControlName="Aadhaar" name="Aadhaar"><br>

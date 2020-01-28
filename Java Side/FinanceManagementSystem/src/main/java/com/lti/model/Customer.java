@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 @Scope(scopeName="prototype")
 @Entity
 @Table(name="customer")
-public class Customer implements Serializable{
+public class Customer implements Serializable {
 	
 	
 	@Id

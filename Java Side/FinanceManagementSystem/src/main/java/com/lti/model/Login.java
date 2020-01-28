@@ -28,7 +28,7 @@ public class Login implements Serializable {
 	private String password;
 	
 	@Autowired
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name="account_id")
 	private Customer customer;
 	
@@ -39,13 +39,6 @@ public class Login implements Serializable {
 	
 		this.username = username;
 		this.password = password;
-	}
-	
-	public Login(String username, String password, Customer customer) {
-		
-		this.username = username;
-		this.password = password;
-		this.customer = customer;
 	}
 
 

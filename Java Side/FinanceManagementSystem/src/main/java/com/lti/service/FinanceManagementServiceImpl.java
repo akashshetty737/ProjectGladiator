@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.lti.dao.FinanaceManagementDao;
 import com.lti.model.Customer;
+import com.lti.model.Emi;
 import com.lti.model.Login;
+import com.lti.model.Product;
 
 @Service("service")
 public class FinanceManagementServiceImpl implements FinanaceManagementService {
@@ -30,9 +32,24 @@ public class FinanceManagementServiceImpl implements FinanaceManagementService {
 
 	@Override
 	public Login findUser(String username) {
-		Login login = dao.viewUser(username);
-		System.out.println(login);
-		return login ;
+		return  dao.viewUser(username);
+	}
+
+	@Override
+	public Product showProduct(String productName) {
+	
+		return dao.viewProduct(productName);
+	}
+
+	@Override
+	public boolean addNewEmi(Emi emi) {
+		int result = dao.insertNewEmi(emi);
+		if(result == 1){
+			return true;
+		}else{
+			return false;
+		}
+			
 	}
 
 }

@@ -5,9 +5,16 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component("product")
+@Scope(scopeName="prototype")
 @Entity
-public class Product implements Serializable{
+@Table(name="product")
+public class Product implements Serializable {
 	
 	@Id
 	@Column(name="product_id")

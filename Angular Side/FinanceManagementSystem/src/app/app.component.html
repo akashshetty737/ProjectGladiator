@@ -5,19 +5,27 @@
   </div>
   
   <div class="navbar">
+    
+    <form class="form-inline md-form mr-auto mb-4" [formGroup]="searchForm" (ngSubmit)=onSubmit()>
+      <input class="form-control mr-sm-2" formControlName="productName" type="text" placeholder="Search" aria-label="Search">
+      <button mdbBtn size="sm" color="warning" outline="true" rounded="true" class="my-0 waves-light"
+        mdbWavesEffect type="submit">Search</button>
+    </form>
+
     <a href="main" class="active">Home</a>
   
-  
-     <a href="register" class="right" >Register</a>
-   
-
-    
-    <a href="login" class="right">Login</a>
+    <div *ngIf="!isUserLoggedIn">
+      <a href="register" class="right">Register</a>
+      <a href="login" class="right">Login</a>
+    </div>
+    <div *ngIf="isUserLoggedIn">
+      <a href="#" class="right">DashBoard</a>
+      <button (click)=onLogOut()>Logout</button>
+    </div>
+    <a href="product-info">Product Information</a>
     
   
   </div>
-
-
 
 
 <router-outlet ></router-outlet>

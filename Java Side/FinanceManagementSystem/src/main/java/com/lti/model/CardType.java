@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
-@Component("cardTypeId")
+@Component("card_type")
 @Scope(scopeName="prototype")
 @Entity
-@Table(name="card_type_id")
+@Table(name="card_type")
 public class CardType implements Serializable {
 	@Id
 	@Column(name="card_type_id")

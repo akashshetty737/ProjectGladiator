@@ -1,17 +1,30 @@
 package com.lti.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component("emi")
+@Scope(scopeName="prototype")
 @Entity
-public class Emi implements Serializable{
+@Table(name="emi")
+public class Emi implements Serializable {
+	
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="emi_seq")
+	@SequenceGenerator(sequenceName = "emi_seq", name="emi_seq", initialValue=1, allocationSize=1)
 	@Column(name="emi_id")
 	private int emiId;
 	@Column(name="emi_start_date")
@@ -28,9 +41,11 @@ public class Emi implements Serializable{
 	private char emiActiveStatus;
 	
 	
-	@OneToMany
-	private List<Customer> customers;
+	@ManyToOne
+	@JoinColumn(name="customer_id")
+	private Customer customer;
 	@OneToOne
+	@JoinColumn(name="product_id")
 	private Product product;
 	
 	
@@ -92,11 +107,11 @@ public class Emi implements Serializable{
 		this.emiActiveStatus = emiActiveStatus;
 	}
 	
-	public List<Customer> getCustomers() {
-		return customers;
+	public Customer getCustomer() {
+		return customer;
 	}
-	public void setCustomers(List<Customer> customers) {
-		this.customers = customers;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 	public Product getProduct() {
 		return product;

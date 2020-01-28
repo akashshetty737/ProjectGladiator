@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Scope(scopeName="prototype")
 @Entity
 @Table(name="card")
-public class Card implements Serializable {
+public class Card implements Serializable{
 	@Id
 	@Column(name="card_number")
 	private int cardNumber;
@@ -27,7 +27,7 @@ public class Card implements Serializable {
 	@Column(name="valid_till")
 	private String validTill;
 	@Column(name="credit_used")
-	private int creditUsed;
+	private double creditUsed;
 	@Column(name="card_status")
 	private char cardStatus;
 	@Autowired
@@ -39,7 +39,7 @@ public class Card implements Serializable {
 	public Card() {
 	
 	}
-	public Card(int cardNumber, String validFrom, String validTill, int creditUsed, char cardStatus) {
+	public Card(int cardNumber, String validFrom, String validTill, double creditUsed, char cardStatus) {
 		this.cardNumber = cardNumber;
 		this.validFrom = validFrom;
 		this.validTill = validTill;
@@ -66,10 +66,10 @@ public class Card implements Serializable {
 	public void setValidTill(String validTill) {
 		this.validTill = validTill;
 	}
-	public int getCreditUsed() {
+	public double getCreditUsed() {
 		return creditUsed;
 	}
-	public void setCreditUsed(int creditUsed) {
+	public void setCreditUsed(double creditUsed) {
 		this.creditUsed = creditUsed;
 	}
 	public char getCardStatus() {

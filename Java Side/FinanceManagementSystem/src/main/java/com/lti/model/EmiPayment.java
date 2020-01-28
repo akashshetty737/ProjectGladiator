@@ -1,3 +1,4 @@
+
 package com.lti.model;
 
 import java.io.Serializable;
@@ -6,9 +7,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component("emi_payment")
+@Scope(scopeName="prototype")
 @Entity
-public class EmiPayment implements Serializable{
+@Table(name="emi_payment")
+public class EmiPayment implements Serializable {
 	
 	@Id
 	@Column(name="emi_payment_id")

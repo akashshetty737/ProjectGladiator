@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+/* Float four columns side by side */
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+    margin-left:100px;
+
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 800px) {
+    .column {
+        margin-left: 200px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Style the counter cards */
+.card {
+    padding:20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background-color: #f1f1f1;
+    float: left;
+    margin-left: 120px;
+}
+
+.card1 {
+    margin-left: 38%;
+    margin-bottom: 50px;
+    width: 25%;
+    height: 220px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color:gold;
+    border-radius: 25px;
+    color: black;
+}
+
+.pp {
+    margin: 50px 0px 50px 80px;
+
+}
+
+.welcome {
+    max-width: max-content;
+    text-align: right;
+    margin: 20px 15px 20px 15px;
+}
+
+.title {
+    max-width: max-content;
+    text-align: center;
+}
+
+table {
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    border: black solid 0.5px;
+    width: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProductInfoComponent } from './product-info/product-info.component';
 
 
 
@@ -21,7 +22,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RegisterComponent,
     LoginComponent,
     MainComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductInfoComponent
   ],
   imports: [
     BrowserModule,
