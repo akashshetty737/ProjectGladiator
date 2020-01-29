@@ -1,22 +1,31 @@
+<form [formGroup]="loginForm" (ngSubmit)="loginCustomer()" ngNativeValidate>
 
-  
-        <form [formGroup]="loginForm" (ngSubmit)="loginCustomer()">
-               
-          <h1>Login</h1>
-         
-          <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" formControlName="username" placeholder="Enter Username" name="uname" required>
-        
-            <label for="psw"><b>Password</b></label>
-            <input type="password" formControlName="password" placeholder="Enter Password" name="psw" required>
-      
-          </div>
-        
-          <div class="container" style="background-color:#f1f1f1">
-             <button type="submit" class="Loginbtn">Login</button>
-              <button type="button" class="cancelbtn">Go back</button>
-            <span class="psw"><a href="register">Forgot password?</a></span>
-          </div>
-         
-    </form>
+  <h1>Login</h1>
+
+  <div class="container">
+    <div class="form-group">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" formControlName="username" placeholder="Enter Username" name="uname" required>
+      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+        <div *ngIf="username.errors.required">
+          username is required.
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="psw"><b>Password</b></label>
+      <input type="password" formControlName="password" placeholder="Enter Password" name="psw" required>
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+        <div *ngIf="password.errors.required">
+          password is required.
+        </div>
+
+      </div>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="submit" class="Loginbtn">Login</button>
+    </div>
+  </div>
+</form>

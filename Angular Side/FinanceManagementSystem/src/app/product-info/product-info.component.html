@@ -1,39 +1,38 @@
+<h2 style="text-align:center">Product details</h2>
 
-  
-  <h2 style="text-align:center">Product details</h2>
-  
-  <div style="margin-bottom: 50px;margin-top: 80px;margin-left: 50px">
-    <h1>{{product.productName}}</h1>
-  
-  </div>
-  <div class="price">
-    <h2>{{product.productPrice}}</h2>
-    <p>buy now at emi starting from {{product.productPrice/12}}/month*</p>
-    <p>Product Available {{product.productUnitsInStock}}
-  
-  </div>
-  
-  <form  class="selectemi" [formGroup]="emiPeriodForm" (ngSubmit)= onSubmit()>
+<div  class="price">
+  <h1>{{product.productName}}</h1>
+
+  <h2>₹{{product.productPrice}}</h2>
+  <p>buy now at emi starting from ₹{{product.productPrice/12}}/month*</p>
+  <p><b>Product Available</b> {{product.productUnitsInStock}} Units Available</p>
+  <p><b>Product Description:</b></p>
+  <p>{{product.productDescription}}</p>
+
+</div >
+<div class="price">
+  <form class="selectemi" [formGroup]="emiPeriodForm" (ngSubmit)=onSubmit()>
     <h1>Select EMI Period</h1>
-    <label class="container" >12 Months for {{product.productPrice/12}}/month
+    <label class="container">12 Months for ₹{{product.productPrice/12}}/month
       <input type="radio" checked="checked" value="12" name="emiMonths" formControlName="emiMonths">
       <span class="checkmark"></span>
     </label>
-    <label class="container"> 9 Months for {{product.productPrice/9}}/month
-      <input type="radio" value="9" name="emiMonths" formControlName="emiMonths" >
+    <label class="container"> 9 Months for ₹{{product.productPrice/9}}/month
+      <input type="radio" value="9" name="emiMonths" formControlName="emiMonths">
       <span class="checkmark"></span>
     </label>
-    <label class="container">6 Months for {{product.productPrice/6}}/month
+    <label class="container">6 Months for ₹{{product.productPrice/6}}/month
       <input type="radio" value="6" name="emiMonths" formControlName="emiMonths">
       <span class="checkmark"></span>
     </label>
-    <label class="container">3 Months for {{product.productPrice/3}}/month
+    <label class="container">3 Months for ₹{{product.productPrice/3}}/month
       <input type="radio" value="3" name="emiMonths" formControlName="emiMonths">
       <span class="checkmark"></span>
     </label>
-  
-  <div>
-    <p><button class="buynow" type="submit">Buy Now</button></p>
-  
-  </div>
-</form>
+
+    <div>
+      <p><button class="buynow" type="submit">Buy Now</button></p>
+
+    </div>
+  </form>
+</div>

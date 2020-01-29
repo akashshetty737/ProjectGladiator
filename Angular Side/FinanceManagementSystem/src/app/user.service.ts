@@ -15,7 +15,7 @@ export class UserService {
   
   
   createUser(login: Login) {
-        return this.http.post(this.baseUrl, login);
+        return this.http.post<any>(this.baseUrl, login);
     }
   
   loginUser(login: Login){
@@ -27,7 +27,7 @@ export class UserService {
   }
 
   addEmi(emi: Emi){
-    return this.http.post(this.baseUrl+'/products/buy',emi);
+    return this.http.post<any>(this.baseUrl+'/products/buy',emi);
   }
 
   fetchEmi(customerId: number){

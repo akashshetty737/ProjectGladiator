@@ -1,31 +1,33 @@
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="main">
-    <h1><i>SLASH</i></h1>
-    <p>easy <b>EMI</b> on your bill</p>
-  </div>
-  
-  <div class="navbar">
-    
-    <form class="form-inline md-form mr-auto mb-4" [formGroup]="searchForm" (ngSubmit)=onSubmit()>
-      <input class="form-control mr-sm-2" formControlName="productName" type="text" placeholder="Search" aria-label="Search">
-      <button mdbBtn size="sm" color="warning" outline="true" rounded="true" class="my-0 waves-light"
-        mdbWavesEffect type="submit">Search</button>
-    </form>
+  <h1><i>SLASH</i></h1>
+  <p>easy <b>EMI</b> on your bill</p>
+</div>
 
-    <button (click)=onHome()>Home</button>
-  
-    <div *ngIf="!isUserLoggedIn">
-      <button (click)=onRegister()>Register</button>
-      <button (click)=onLogin()> Login</button>
-    </div>
-    <div *ngIf="isUserLoggedIn">
-      <button (click)=onDashboard()>Dashboard</button>
-      <button (click)=onLogOut()>Logout</button>
-    </div>
-    
-    
-  
+<div class="navbar">
+
+  <form class="form-inline md-form mr-auto mb-4" [formGroup]="searchForm" (ngSubmit)=onSubmit()>
+    <input class="form-control mr-sm-2" formControlName="productName" type="text" placeholder="Search"
+      aria-label="Search">
+    <button
+      type="submit">Search</button>
+  </form>
+
+
+  <button class="button" (click)=onHome()>Home</button>
+
+  <div *ngIf="!isUserLoggedIn">
+    <button class="button" (click)=onRegister()>Register</button>
+    <button class="button" (click)=onLogin()> Login</button>
+  </div>
+  <div *ngIf="isUserLoggedIn">
+    <button class="button" (click)=onDashboard()>Dashboard</button>
+    <button class="button" (click)=onLogOut()>Logout</button>
   </div>
 
 
-<router-outlet ></router-outlet>
+
+</div>
+
+
+<router-outlet></router-outlet>

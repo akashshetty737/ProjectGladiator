@@ -71,14 +71,14 @@ public class FinanceManagementController {
 		
 		
 		@RequestMapping(path="products/buy", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
-		public ResponseEntity<Response> addNewEmi(@RequestBody Emi emi){
-			ResponseEntity<Response> response;
+		public ResponseEntity<String> addNewEmi(@RequestBody Emi emi){
+			ResponseEntity<String> response;
 			boolean result = service.addNewEmi(emi);
 			if(result){
-				response=new ResponseEntity<Response>(new Response("Product Purchased"),HttpStatus.CREATED);
+				response=new ResponseEntity<String>("Product Purchased",HttpStatus.CREATED);
 			}
 			else{
-				response=new ResponseEntity<Response>(new Response("Some Error Occured. Please Try Again"),HttpStatus.INTERNAL_SERVER_ERROR);
+				response=new ResponseEntity<String>("Some Error Occured. Please Try Again",HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 			return response;
 		}	

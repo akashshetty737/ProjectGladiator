@@ -1,4 +1,5 @@
 export class Response {
     responseMessage: string;
-    responseStatus: string;
+    responseCode: string;
+    responseObject:any;
 }

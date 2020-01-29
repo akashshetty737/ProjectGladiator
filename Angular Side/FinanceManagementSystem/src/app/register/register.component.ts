@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   addForm:FormGroup;
   router: any;
   submitted: boolean = false;
+  array: any = [];
 
   constructor(private http:HttpClient,private formBuilder:FormBuilder,private userService: UserService) { 
 
@@ -81,7 +82,8 @@ export class RegisterComponent implements OnInit {
        
     
        this.userService.createUser(login).subscribe(data=>{
-          alert('customer is added');
+          this.array= data;
+          alert(this.array.message);
         });
       }
 }

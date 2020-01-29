@@ -17,6 +17,7 @@ export class ProductInfoComponent implements OnInit {
   product:Product;
   customer:Customer;
   emiPeriodForm: FormGroup;
+  array: any = [];
   
 
   constructor(private http:HttpClient, private formBuilder:FormBuilder, private userService: UserService, private router: Router, private parent: AppComponent) { }
@@ -61,6 +62,8 @@ export class ProductInfoComponent implements OnInit {
      emi.product = this.product;
      emi.customer = this.customer;
      this.userService.addEmi(emi).subscribe(data=>{
+              this.array= data;
+             alert(this.array.message);
              this.parent.ngOnInit;
              this.router.navigate(['main']);
      });

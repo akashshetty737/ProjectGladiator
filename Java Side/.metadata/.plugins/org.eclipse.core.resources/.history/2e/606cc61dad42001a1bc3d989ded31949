@@ -18,7 +18,6 @@ import com.lti.model.Emi;
 import com.lti.model.EmiPayment;
 import com.lti.model.Login;
 import com.lti.model.Product;
-import com.lti.model.Response;
 import com.lti.service.FinanaceManagementService;
 
 @RestController
@@ -30,14 +29,14 @@ public class FinanceManagementController {
 	private FinanaceManagementService service;
 
 	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Response> addCustomer(@RequestBody Login login){
-		ResponseEntity<Response> response;
+	public ResponseEntity<String> addCustomer(@RequestBody Login login){
+		ResponseEntity<String> response;
 		boolean result = service.addCustomer(login);
 		if(result){
-			response=new ResponseEntity<Response>(new Response("Customer IS ADDED"),HttpStatus.CREATED);
+			response=new ResponseEntity<String>("Customer IS ADDED",HttpStatus.CREATED);
 		}
 		else{
-			response=new ResponseEntity<Response>(new Response("Customer IS NOT ADDED."),HttpStatus.INTERNAL_SERVER_ERROR);
+			response=new ResponseEntity<String>("Customer IS NOT ADDED.",HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return response;
 	}
@@ -71,14 +70,14 @@ public class FinanceManagementController {
 		
 		
 		@RequestMapping(path="products/buy", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
-		public ResponseEntity<Response> addNewEmi(@RequestBody Emi emi){
-			ResponseEntity<Response> response;
+		public ResponseEntity<String> addNewEmi(@RequestBody Emi emi){
+			ResponseEntity<String> response;
 			boolean result = service.addNewEmi(emi);
 			if(result){
-				response=new ResponseEntity<Response>(new Response("Product Purchased"),HttpStatus.CREATED);
+				response=new ResponseEntity<String>("Product Purchased",HttpStatus.CREATED);
 			}
 			else{
-				response=new ResponseEntity<Response>(new Response("Some Error Occured. Please Try Again"),HttpStatus.INTERNAL_SERVER_ERROR);
+				response=new ResponseEntity<String>("Some Error Occured. Please Try Again",HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 			return response;
 		}	

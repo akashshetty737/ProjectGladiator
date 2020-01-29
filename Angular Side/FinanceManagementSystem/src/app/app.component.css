@@ -13,12 +13,10 @@
   .navbar {
     overflow: hidden;
     background-color: #333;
-    /* position: sticky; */
     position: -webkit-sticky;
     top: 0;
   }
   
-  /* Style the navigation bar links */
   .navbar a {
     display: block;
     color: white;
@@ -28,20 +26,64 @@
   }
   
   
-  /* Right-aligned link */
   .navbar a.right{
     float:right;
   }
   
   
-  /* Change color on hover */
   .navbar a:hover {
     background-color:rgb(175, 172, 173);
     color: black;
   }
   
-  /* Active/current link */
   .navbar a.active {
     background-color: #666;
     color: white;
   }
+  .button {
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
