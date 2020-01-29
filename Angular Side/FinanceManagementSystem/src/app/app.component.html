@@ -12,17 +12,17 @@
         mdbWavesEffect type="submit">Search</button>
     </form>
 
-    <a href="main" class="active">Home</a>
+    <button (click)=onHome()>Home</button>
   
     <div *ngIf="!isUserLoggedIn">
-      <a href="register" class="right">Register</a>
-      <a href="login" class="right">Login</a>
+      <button (click)=onRegister()>Register</button>
+      <button (click)=onLogin()> Login</button>
     </div>
     <div *ngIf="isUserLoggedIn">
-      <a href="#" class="right">DashBoard</a>
+      <button (click)=onDashboard()>Dashboard</button>
       <button (click)=onLogOut()>Logout</button>
     </div>
-    <a href="product-info">Product Information</a>
+    
     
   
   </div>

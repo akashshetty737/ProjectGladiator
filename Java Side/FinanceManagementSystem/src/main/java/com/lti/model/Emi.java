@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,8 +14,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Component("emi")
 @Scope(scopeName="prototype")
@@ -40,11 +44,14 @@ public class Emi implements Serializable {
 	@Column(name="emi_active_status")
 	private char emiActiveStatus;
 	
-	
-	@ManyToOne
+	@Autowired
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="customer_id")
 	private Customer customer;
-	@OneToOne
+	
+	
+	@Autowired
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="product_id")
 	private Product product;
 	

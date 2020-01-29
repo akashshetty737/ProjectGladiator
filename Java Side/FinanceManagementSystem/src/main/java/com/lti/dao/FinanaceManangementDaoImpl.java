@@ -1,7 +1,10 @@
 package com.lti.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
@@ -9,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.model.Customer;
 import com.lti.model.Emi;
+import com.lti.model.EmiPayment;
 import com.lti.model.Login;
 import com.lti.model.Product;
 
@@ -38,7 +42,6 @@ public class FinanaceManangementDaoImpl implements FinanaceManagementDao {
 
 	@Override
 	public Product viewProduct(String productName) {
-		System.out.println(productName);
 		String jpql = "From Product p where productName = :productName";
 		TypedQuery<Product> tQuery = entityManager.createQuery(jpql, Product.class);
 		tQuery.setParameter("productName", productName);
@@ -65,6 +68,54 @@ public class FinanaceManangementDaoImpl implements FinanaceManagementDao {
 		
 		return 1;
 	}
+
+	@Override
+	public List<Product> viewAllProduct() {
+		String jpql = "Select p From Product p";
+		
+	Query query = entityManager.createQuery(jpql,Product.class);
+	List<Product> list = query.getResultList();
+		return list;
+	}
+
+	@Override
+	public List<Customer> viewAllCustomer() {
+		String jpql="From Customer c";
+		Query query=entityManager.createQuery(jpql,Customer.class);
+		List<Customer> list=query.getResultList();
+		return list;
+	}
+
+	@Override
+	public List<Emi> viewAllEmiForCustomer(int customerId) {
+	
+		String jpql = "SELECT e From Emi e JOIN e.customer c where c.customerId = :customerId ";
+		Query tQuery = entityManager.createQuery(jpql);
+		tQuery.setParameter("customerId", customerId);
+		return tQuery.getResultList();
+	}
+
+
+
+	@Override
+	@Transactional
+	public int insertPayment(EmiPayment emiPayment) {
+		entityManager.persist(emiPayment);
+		
+		Emi updateEmi = entityManager.find(Emi.class, emiPayment.getEmi().getEmiId());
+		
+		double totalAmountPaid = (updateEmi.getTotalAmountPaid()) + (emiPayment.getEmiPaymentReceived());
+
+		updateEmi.setTotalAmountPaid(totalAmountPaid);
+		
+		entityManager.merge(updateEmi);
+		
+		return 1;
+		
+	}
+
+	
+	
 
 
 

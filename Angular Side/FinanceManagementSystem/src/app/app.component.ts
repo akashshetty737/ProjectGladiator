@@ -6,6 +6,7 @@ import { Product } from './product';
 import { Router } from '@angular/router';
 import { Customer } from './customer';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,26 +25,40 @@ constructor(private http:HttpClient, private formBuilder:FormBuilder, private us
 }
 
 ngOnInit(){
+  this.router.navigate(['main']);
   this.searchForm=this.formBuilder.group({
     productName:['']
   });
 
   let customer : Customer  = JSON.parse(localStorage.getItem("user"));
 
-  if(customer.customerId > 0){
+  if( customer != null){
     this.isUserLoggedIn = true;
   }
   else{
     this.isUserLoggedIn = false;
   }
+}
 
+onHome(){
+  this.router.navigate(['main']);
+}
 
+onRegister(){
+  this.router.navigate(['register']);
+}
 
+onLogin(){
+  this.router.navigate(['login']);
+}
 
+onDashboard(){
+  this.router.navigate(['dashboard']);
 }
 
 onLogOut(){
   localStorage.removeItem("user");
+  localStorage.removeItem("emi");
   this.ngOnInit();
   this.router.navigate(['login']);
 }
@@ -53,7 +68,6 @@ let productName : string = (this.searchForm.controls.productName.value);
 
 this.userService.fetchProduct(productName.toLowerCase()).subscribe(data=>{
   this.product = data;
-  
   localStorage.setItem("product", JSON.stringify(this.product));
   this.router.navigate(['/product-info']);
 

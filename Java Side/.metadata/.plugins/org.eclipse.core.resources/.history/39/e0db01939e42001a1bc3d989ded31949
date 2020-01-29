@@ -1,0 +1,93 @@
+
+package com.lti.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component("emi_payment")
+@Scope(scopeName="prototype")
+@Entity
+@Table(name="emi_payment")
+public class EmiPayment implements Serializable {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="emi_payment_seq")
+	@SequenceGenerator(sequenceName = "emi_payment_seq", name="emi_payment_seq", initialValue=1, allocationSize=1)
+	@Column(name="emi_payment_id")
+	private int emiPaymentId;
+	@Column(name="emi_payment_receieved")
+	private double emiPaymentReceived;
+	@Column(name="emi_payment_receieve_date")
+	private String emiPaymentReceiveDate;
+	@Column(name="emi_payment_ontime")
+	private char emiPaymentOntime;
+	@ManyToOne
+	@JoinColumn(name="emi_id")
+	private Emi emi;
+	
+	
+	public EmiPayment() {
+		
+	}
+	public EmiPayment(int emiPaymentId, double emiPaymentReceived, String emiPaymentReceiveDate,
+			char emiPaymentOntime) {
+		super();
+		this.emiPaymentId = emiPaymentId;
+		this.emiPaymentReceived = emiPaymentReceived;
+		this.emiPaymentReceiveDate = emiPaymentReceiveDate;
+		this.emiPaymentOntime = emiPaymentOntime;
+	}
+
+
+	public int getEmiPaymentId() {
+		return emiPaymentId;
+	}
+	public void setEmiPaymentId(int emiPaymentId) {
+		this.emiPaymentId = emiPaymentId;
+	}
+	public double getEmiPaymentReceived() {
+		return emiPaymentReceived;
+	}
+	public void setEmiPaymentReceived(double emiPaymentReceived) {
+		this.emiPaymentReceived = emiPaymentReceived;
+	}
+	public String getEmiPaymentReceiveDate() {
+		return emiPaymentReceiveDate;
+	}
+	public void setEmiPaymentReceiveDate(String emiPaymentReceiveDate) {
+		this.emiPaymentReceiveDate = emiPaymentReceiveDate;
+	}
+	public char getEmiPaymentOntime() {
+		return emiPaymentOntime;
+	}
+	public void setEmiPaymentOntime(char emiPaymentOntime) {
+		this.emiPaymentOntime = emiPaymentOntime;
+	}
+	public Emi getEmi() {
+		return emi;
+	}
+	public void setEmi(Emi emi) {
+		this.emi = emi;
+	}
+
+
+	@Override
+	public String toString() {
+		return "EmiPayment [emiPaymentId=" + emiPaymentId + ", emiPaymentReceived=" + emiPaymentReceived
+				+ ", emiPaymentReceiveDate=" + emiPaymentReceiveDate + ", emiPaymentOntime=" + emiPaymentOntime + "]";
+	}
+	
+	
+}

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Login } from './login';
 import { Product } from './product';
 import { Emi } from './emi';
-
+import { EmiPayment } from './emi-payment';
 
 @Injectable({
     providedIn: 'root'
@@ -28,6 +28,14 @@ export class UserService {
 
   addEmi(emi: Emi){
     return this.http.post(this.baseUrl+'/products/buy',emi);
+  }
+
+  fetchEmi(customerId: number){
+    return this.http.get<Emi>(this.baseUrl+'/emi/'+customerId);
+  }
+
+  addMonthlyEmiPayment(emiPayment: EmiPayment){
+    return this.http.post<Emi>(this.baseUrl+'/payment',emiPayment);
   }
 
   }

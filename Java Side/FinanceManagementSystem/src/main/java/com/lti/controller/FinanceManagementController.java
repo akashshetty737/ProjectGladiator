@@ -1,5 +1,7 @@
 package com.lti.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.model.Customer;
 import com.lti.model.Emi;
+import com.lti.model.EmiPayment;
 import com.lti.model.Login;
 import com.lti.model.Product;
 import com.lti.service.FinanaceManagementService;
@@ -48,6 +52,22 @@ public class FinanceManagementController {
 		Product product= service.showProduct(productName);
 		return product;
 	}
+		//http://localhost:9090/products
+		@RequestMapping(path="products", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+		public List<Product> productAllDisplay() {
+			List<Product> product= service.showAllProduct();
+			return product;
+	}
+		
+		//http://localhost:9090/admin
+				@RequestMapping(path="admin", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+				public List<Customer> customerAllDisplay() {
+					List<Customer> customer= service.showAllCustomers();
+					return customer;
+			}
+			
+		
+		
 		
 		@RequestMapping(path="products/buy", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 		public ResponseEntity<String> addNewEmi(@RequestBody Emi emi){
@@ -60,6 +80,32 @@ public class FinanceManagementController {
 				response=new ResponseEntity<String>("Some Error Occured. Please Try Again",HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 			return response;
+		}	
+		
+		
+		@RequestMapping(path="emi/{customerId}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+		public List<Emi> emisByUserDisplay(@PathVariable("customerId") int customerId) {
+			List<Emi> emi = service.showAllEmiForCustomer(customerId);
+			return emi;
+	}
+		
+
+/*		@RequestMapping(path="payment", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+		public ResponseEntity<String> addPayment(@RequestBody EmiPayment emiPayment){
+			ResponseEntity<String> response;
+			boolean result = service.addPayment(emiPayment);
+			if(result){
+				response=new ResponseEntity<String>("Payment Sucessfull.",HttpStatus.CREATED);
+			}
+			else{
+				response=new ResponseEntity<String>("Please Try Again.",HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+			return response;
+		}	*/
+
+		@RequestMapping(path="payment", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+		public void addPayment(@RequestBody EmiPayment emiPayment){
+			System.out.println(emiPayment);
 		}	
 	
 /*	@RequestMapping(path="products/{productName}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)

@@ -1,6 +1,7 @@
 package com.lti.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -16,6 +18,8 @@ import javax.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Component("customer")
@@ -50,10 +54,17 @@ public class Customer implements Serializable {
 	private String customerBankName;
 	@Column(name="customer_approved_status")
 	private char customerApprovedStatus = 'N';
+	
 	@Autowired
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="customer_card_number")
 	private Card customerCard;
+	
+	
+/*	@JsonIgnore
+	@Autowired
+	@OneToMany(mappedBy="customer")
+	private List<Emi> emiList;*/
 	
 	
 	public Customer() {
@@ -150,7 +161,13 @@ public class Customer implements Serializable {
 	public void setCustomerCard(Card customerCard) {
 		this.customerCard = customerCard;
 	}
-	
+/*	public List<Emi> getEmi() {
+		return emiList;
+	}
+
+	public void setEmi(List<Emi> emi) {
+		this.emiList = emi;
+	}*/
 
 	@Override
 	public String toString() {

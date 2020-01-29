@@ -1,0 +1,78 @@
+package com.lti.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+
+@Component("card_type_id")
+@Scope(scopeName="prototype")
+@Entity
+@Table(name="card")
+public class CardType {
+	@Id
+	@Column(name="card_type_id")
+	private int cardTypeId;
+	@Column(name="card_type")
+	private String cardType;
+	@Column(name="card_limit")
+	private int cardLimit;
+	@Column(name="card_validity_period")
+	private int cardValidityPeriod;
+	
+	
+	
+	public CardType() {
+	
+	}
+	
+	
+	
+	public CardType(int cardTypeId, String cardType, int cardLimit, int cardValidityPeriod) {
+		this.cardTypeId = cardTypeId;
+		this.cardType = cardType;
+		this.cardLimit = cardLimit;
+		this.cardValidityPeriod = cardValidityPeriod;
+	}
+
+
+
+	public int getCardTypeId() {
+		return cardTypeId;
+	}
+	public void setCardTypeId(int cardTypeId) {
+		this.cardTypeId = cardTypeId;
+	}
+	public String getCardType() {
+		return cardType;
+	}
+	public void setCardType(String cardType) {
+		this.cardType = cardType;
+	}
+	public int getCardLimit() {
+		return cardLimit;
+	}
+	public void setCardLimit(int cardLimit) {
+		this.cardLimit = cardLimit;
+	}
+	public int getCardValidityPeriod() {
+		return cardValidityPeriod;
+	}
+	public void setCardValidityPeriod(int cardValidityPeriod) {
+		this.cardValidityPeriod = cardValidityPeriod;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "CardType [cardTypeId=" + cardTypeId + ", cardType=" + cardType + ", cardLimit=" + cardLimit
+				+ ", cardValidityPeriod=" + cardValidityPeriod + "]";
+	}
+	
+	
+}

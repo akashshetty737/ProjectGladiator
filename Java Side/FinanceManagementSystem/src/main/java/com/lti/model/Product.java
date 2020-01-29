@@ -33,15 +33,12 @@ public class Product implements Serializable {
 	private String productDescription;
 
 	public Product() {
-	
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
-	
 	public Product(int productId, String productCode, String productName, int productProcessingFees,
 			double productPrice, int productUnitsInStock, String productDescription) {
-	
+		super();
 		this.productId = productId;
 		this.productCode = productCode;
 		this.productName = productName;
@@ -50,10 +47,6 @@ public class Product implements Serializable {
 		this.productUnitsInStock = productUnitsInStock;
 		this.productDescription = productDescription;
 	}
-
-
-
-
 	public int getProductId() {
 		return productId;
 	}
@@ -96,14 +89,14 @@ public class Product implements Serializable {
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
+
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", productCode=" + productCode + ", productName=" + productName
 				+ ", productProcessingFees=" + productProcessingFees + ", productPrice=" + productPrice
-				+ ", productUnitsInStock=" + productUnitsInStock + ", productDescription=" + productDescription + "]";
+				+ ", productUnitsInStock=" + productUnitsInStock + ", productDescription=" + productDescription
+				+ "]";
 	}
-	
-	
 	
 
 }

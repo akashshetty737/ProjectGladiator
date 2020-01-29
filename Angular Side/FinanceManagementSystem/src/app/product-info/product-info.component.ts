@@ -30,9 +30,9 @@ export class ProductInfoComponent implements OnInit {
   }
 
   onSubmit(){
+    if(this.customer != null){
     let emi:Emi = new Emi();
 
-    alert(this.emiPeriodForm.controls.emiMonths.value);
     let startMonth = new Date().getMonth() + 2;
     let startYear = new Date().getFullYear();
 
@@ -52,10 +52,8 @@ export class ProductInfoComponent implements OnInit {
    
     let emiStartDate ="4/"+startMonth+"/"+startYear;
     let emiEndDate = "4/"+endMonth+"/"+endYear;
-    alert(emiStartDate);
      emi.emiStartDate = emiStartDate;
      emi.emiEndDate = emiEndDate;
-     alert(emi.emiStartDate);
      emi.totalAmountPaid = 0;
      emi.emiBalanceRemaining = this.product.productPrice;
      emi.amountEachMonth = this.product.productPrice/this.emiPeriodForm.controls.emiMonths.value;
@@ -63,7 +61,12 @@ export class ProductInfoComponent implements OnInit {
      emi.product = this.product;
      emi.customer = this.customer;
      this.userService.addEmi(emi).subscribe(data=>{
-             this.router.navigate(['/main']);
+             this.parent.ngOnInit;
+             this.router.navigate(['main']);
      });
    }
+   else{
+     this.router.navigate(['login']);
+   }
+  }
 }

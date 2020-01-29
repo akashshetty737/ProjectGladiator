@@ -1,0 +1,9 @@
+package com.lti.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(path = "/")
+public class FinanceManagementController {
+
+}

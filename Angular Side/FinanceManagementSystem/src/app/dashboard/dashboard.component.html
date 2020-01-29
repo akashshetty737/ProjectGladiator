@@ -1,35 +1,33 @@
 <div class="welcome">
-    <p>welcome "Customer Name"</p>
+    <p>welcome {{customer.customerName}}</p>
 </div>
 
 <div class="title">
     <h2>Dash Board</h2>
 </div>
-<div class="card1">
 
+
+<div class="card1" *ngIf="cardActive">
     <h3>Slash Card</h3>
-    <h4>Gold</h4><br><br><br>
-    <h5>valid till 01/2030</h5>
+    <h4>{{card.cardNumber}}</h4><br><br><br>
+    <h4>{{cardType.cardType}}</h4>
+    <h5>Valid Till: {{card.validTill}}</h5>
 
 
 </div>
 
 
+<div class="card1" *ngIf="!cardActive">
+    <h3>Slash Card</h3>
+    <h4>You are not approved yet</h4><br><br><br>
+</div>
 
 
 <div class="row">
     <div class="column">
         <div class="card">
             <h3>Total Credit</h3>
-            <p>₹50000</p>
-
-        </div>
-    </div>
-
-    <div class="column">
-        <div class="card">
-            <h3>Credit Used</h3>
-            <p>₹12455</p>
+            <p>{{cardType.cardLimit}}</p>
 
         </div>
     </div>
@@ -37,56 +35,38 @@
     <div class="column">
         <div class="card">
             <h3>Remaining Credit</h3>
-            <p>₹37545</p>
+            <p>{{card.creditUsed}}</p>
 
         </div>
     </div>
 
 </div>
 
+
+
 <div class="pp">
     <H2>Products Purchased</H2>
 </div>
 
 <div class="recentTransactions">
+   <div>
     <table>
         <tr>
-            <th>Product Name </th>
-            <th>Amount </th>
+            <th>Product </th>
+            <th>Start Date</th>
+            <th>End Date</th>
             <th>Amount Paid</th>
-            <th>Balance</th>
-
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
+        <tr *ngFor="let emi of emiList">
+               <td> {{emi.product.productName}}</td>
+               <td> {{emi.emiStartDate}}</td>
+               <td> {{emi.emiEndDate}}</td>
+                <td> {{emi.totalAmountPaid}}</td>
+                <td> <button (click)="payEmi(emi)"> Pay Emi </button> </td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
+        
     </table>
-
+    </div>
 </div>
 
 

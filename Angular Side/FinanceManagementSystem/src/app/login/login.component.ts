@@ -37,13 +37,11 @@ export class LoginComponent implements OnInit {
 
     this.userService.loginUser(login).subscribe(data=>{
       this.loginData = data;
-      console.log(this.loginData.password);
       if(login.password == this.loginData.password){
         alert("Successful");
-        
         localStorage.setItem("user",JSON.stringify(this.loginData.customer));
         this.parent.ngOnInit();
-        this.router.navigate(['main']);
+        this.router.navigate(['dashboard']);
      }
      else{
        alert("Please Try Again")

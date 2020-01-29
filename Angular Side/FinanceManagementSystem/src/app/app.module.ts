@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
+import { EmiPaymentComponent } from './emi-payment/emi-payment.component';
 
 
 
@@ -23,7 +24,8 @@ import { ProductInfoComponent } from './product-info/product-info.component';
     LoginComponent,
     MainComponent,
     DashboardComponent,
-    ProductInfoComponent
+    ProductInfoComponent,
+    EmiPaymentComponent
   ],
   imports: [
     BrowserModule,
