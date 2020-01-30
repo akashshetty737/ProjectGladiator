@@ -1,15 +1,14 @@
+<h1 style="text-align:center">PRODUCT EMI PAYMENT</h1>
 
-  <h1 style="text-align:center">PRODUCT EMI PAYMENT</h1>
-  
-  <div style="margin-bottom: 50px;margin-top: 80px;margin-left: 50px">
-    <form  class="selectemi" [formGroup]="emiPaymentForm" (ngSubmit)= onSubmit()>
+<div style="margin:50px 50px 50px 50px;border: black solid 1px;">
+  <form class="selectemi" [formGroup]="emiPaymentForm" (ngSubmit)=onSubmit()>
 
     <h2>Amount Payable: </h2>
     <h2> {{emi.amountEachMonth}} </h2>
 
-    <div>
-        <p><button class="paynow" type="submit">Pay Now</button></p>
-      
-      </div>
-    </form>
+    <div style="margin: auto;">
+      <p><button class="paynow" type="submit">Pay Now</button></p>
 
+    </div>
+  </form>
+</div>

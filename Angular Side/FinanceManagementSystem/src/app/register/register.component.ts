@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators ,FormsModule,ReactiveFormsModule} fr
 import { UserService } from '../user.service';
 import { Login } from '../login';
 import { Customer } from '../customer';
+import { Router } from '@angular/router';
 
 
 
@@ -15,11 +16,11 @@ import { Customer } from '../customer';
 })
 export class RegisterComponent implements OnInit {
   addForm:FormGroup;
-  router: any;
+
   submitted: boolean = false;
   array: any = [];
 
-  constructor(private http:HttpClient,private formBuilder:FormBuilder,private userService: UserService) { 
+  constructor(private http:HttpClient,private formBuilder:FormBuilder,private userService: UserService, private router:Router) { 
 
   }
  
@@ -32,7 +33,7 @@ export class RegisterComponent implements OnInit {
       customerName:['' ,Validators.required],
       customerDob:['' ,Validators.required],
       customerEmailId:['',Validators.required],
-      customerPhoneNo:['',Validators.required],
+      customerPhoneNo:['',Validators.required,Validators.minLength(10)],
       customerAnnualIncome:['',Validators.required],
       customerAddress:['',Validators.required],
       customerBankName:['',Validators.required],
@@ -84,6 +85,7 @@ export class RegisterComponent implements OnInit {
        this.userService.createUser(login).subscribe(data=>{
           this.array= data;
           alert(this.array.message);
+          this.router.navigate(['login']);
         });
       }
 }

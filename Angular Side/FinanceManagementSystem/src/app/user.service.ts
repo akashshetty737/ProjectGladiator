@@ -10,7 +10,7 @@ import { EmiPayment } from './emi-payment';
   })
 export class UserService {
     constructor(private http:HttpClient) { }
-  baseUrl:string = 'http://localhost:9090';
+  baseUrl:string = 'http://192.168.13.72:9090';
    
   
   

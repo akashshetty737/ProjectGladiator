@@ -58,7 +58,7 @@ onDashboard(){
 
 onLogOut(){
   localStorage.removeItem("user");
-  localStorage.removeItem("emi");
+  localStorage.removeItem("emiList");
   this.ngOnInit();
   this.router.navigate(['login']);
 }

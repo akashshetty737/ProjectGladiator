@@ -34,10 +34,10 @@ public class FinanceManagementController {
 		ResponseEntity<Response> response;
 		boolean result = service.addCustomer(login);
 		if(result){
-			response=new ResponseEntity<Response>(new Response("Registration Successful"),HttpStatus.CREATED);
+			response=new ResponseEntity<Response>(new Response("Customer IS ADDED"),HttpStatus.CREATED);
 		}
 		else{
-			response=new ResponseEntity<Response>(new Response("Registration Not Successful. Please Try Again."),HttpStatus.INTERNAL_SERVER_ERROR);
+			response=new ResponseEntity<Response>(new Response("Customer IS NOT ADDED."),HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return response;
 	}
@@ -91,7 +91,34 @@ public class FinanceManagementController {
 	}
 		
 
+/*		@RequestMapping(path="payment", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+		public ResponseEntity<String> addPayment(@RequestBody EmiPayment emiPayment){
+			ResponseEntity<String> response;
+			boolean result = service.addPayment(emiPayment);
+			if(result){
+				response=new ResponseEntity<String>("Payment Sucessfull.",HttpStatus.CREATED);
+			}
+			else{
+				response=new ResponseEntity<String>("Please Try Again.",HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+			return response;
+		}	*/
 
-
+		@RequestMapping(path="payment", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+		public void addPayment(@RequestBody EmiPayment emiPayment){
+			System.out.println(emiPayment);
+		}	
+	
+/*	@RequestMapping(path="products/{productName}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public void productDisplay(@PathVariable("productName") String productName) {
+		System.out.println(productName);
 		
+	}*/
+
+	/*	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	public void addCustomer(@RequestBody Login login){
+		System.out.println(login);
+		System.out.println(login.getCustomer());
+	}*/
+
 }

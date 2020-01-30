@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     this.userService.loginUser(login).subscribe(data=>{
       this.loginData = data;
       if(login.password == this.loginData.password){
-        alert("Successful");
+        
         localStorage.setItem("user",JSON.stringify(this.loginData.customer));
         this.parent.ngOnInit();
         this.router.navigate(['dashboard']);

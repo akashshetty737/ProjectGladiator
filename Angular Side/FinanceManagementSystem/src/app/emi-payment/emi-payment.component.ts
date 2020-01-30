@@ -35,9 +35,9 @@ export class EmiPaymentComponent implements OnInit {
 
     let date = new Date(y,m,d);
     let r = new Date();
-    let m2 = q.getMonth()+2;
+    let m2 = r.getMonth()+2;
  
-    let y2 = q.getFullYear();
+    let y2 = r.getFullYear();
 
     let date2 = new Date(y2,m2,4);
 
